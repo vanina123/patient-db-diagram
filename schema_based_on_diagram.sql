@@ -47,3 +47,23 @@ CREATE TABLE medical_treament_history(
     CONSTRAINT fk_treatments FOREIGN KEY(treatments_id) REFERENCES treatments(id),
     PRIMARY  key (medical_histories_id, treatment_id)
 );
+
+-- Indexes for foreign keys
+
+-- Index for medical_histories.patient_id
+CREATE INDEX idx_medical_histories_patient_id ON medical_histories (patient_id);
+
+-- Index for invoices.medical_history_id
+CREATE INDEX idx_invoices_medical_history_id ON invoices (medical_history_id);
+
+-- Index for invoice_items.invoice_id
+CREATE INDEX idx_invoice_items_invoice_id ON invoice_items (invoice_id);
+
+-- Index for invoice_items.treatment_id
+CREATE INDEX idx_invoice_items_treatment_id ON invoice_items (treatment_id);
+
+-- Index for medical_treatment_history.medical_histories_id
+CREATE INDEX idx_medical_treatment_history_medical_histories_id ON medical_treatment_history (medical_histories_id);
+
+-- Index for medical_treatment_history.treatment_id
+CREATE INDEX idx_medical_treatment_history_treatment_id ON medical_treatment_history (treatment_id);
